@@ -6,6 +6,7 @@ import {
   RiTimeLine,
   RiFileEditLine,
   RiExpandRightFill,
+  RiExpandLeftFill
 } from "react-icons/ri";
 
 function TodoItem({ todo, selectTodo, expandClose }) {
@@ -13,6 +14,7 @@ function TodoItem({ todo, selectTodo, expandClose }) {
   const [showDateAndTime, setShowDateAndTime] = useState(false);
   const { deleteTodo, updateTodo, toggleComplete } = useTodo();
   const [todoText, setTodoText] = useState(todo.todo);
+  const [todoExpand, setTodoExpand] = useState(false);
 
   const update = () => {
     updateTodo(todo.id, { ...todo, todo: todoText });
@@ -23,6 +25,11 @@ function TodoItem({ todo, selectTodo, expandClose }) {
     expandClose();
     deleteTodo(todo.id);
   };
+
+  const closeExpandedTodo = () => {
+    setTodoExpand(prev => !prev)
+    if(todoExpand) expandClose()
+  }
 
   return (
     <div
@@ -47,7 +54,7 @@ function TodoItem({ todo, selectTodo, expandClose }) {
           readOnly={!editTodo}
           className={`w-36 pl-1 font-bold outline-none tracking-wide bg-transparent text-white text-lg
           ${todo.isCompleted ? "line-through" : ""} ${
-            editTodo ? "rounded-lg border border-emerald-800/30 " : ""
+            editTodo ? "rounded-lg border border-emerald-800/30 bg-slate-600/20" : ""
           } overflow-ellipsis`}
         />
       </div>
@@ -83,9 +90,12 @@ function TodoItem({ todo, selectTodo, expandClose }) {
         </button>
         <button
           className="bg-white p-1 rounded text-green-600 active:scale-95"
-          onClick={() => selectTodo(todo.id)}
+          onClick={() => {
+            selectTodo(todo.id)
+            closeExpandedTodo()
+          }}
         >
-          <RiExpandRightFill />
+          {!todoExpand? <RiExpandRightFill /> : <RiExpandLeftFill/>}
         </button>
       </div>
     </div>

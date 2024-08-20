@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react";
 import UserContextProvider from "./contexts/UserContext";
 import Header from "./components/Header/Header";
 import { Outlet } from "react-router-dom";
 import { ThemeContextProvider } from "./contexts/ThemeContext";
-import { useEffect, useState } from "react";
 
 function App() {
   const [colorMode, setColorMode] = useState("dark");

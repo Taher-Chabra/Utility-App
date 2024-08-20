@@ -14,7 +14,7 @@ function HomePage() {
   return (
     <div className="flex flex-col items-center">
       <div className="text-center font-medium mt-8">
-        <span className="text-xl text-teal-500 mr-3">
+        <span className="text-xl dark:text-slate-200 text-slate-900 mr-3">
           Please tell us who is using the App
         </span>
         <input

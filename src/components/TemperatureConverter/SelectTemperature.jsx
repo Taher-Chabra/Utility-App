@@ -1,7 +1,7 @@
 import React from "react";
 
 function SelectTemperature({ label, selectTemperature, onTemperatureChange }) {
-  const temperature = ["Celsius", "Kelvin", "Fahrenheit"];
+  const scale = ["Celsius", "Kelvin", "Fahrenheit"];
   return (
     <div>
       <p className="text-base text-gray-700">{label}:</p>
@@ -12,7 +12,7 @@ function SelectTemperature({ label, selectTemperature, onTemperatureChange }) {
         }
         className="p-2"
       >
-        {temperature.map((temp) => (
+        {scale.map((temp) => (
           <option key={temp} value={temp}>
             {temp}
           </option>

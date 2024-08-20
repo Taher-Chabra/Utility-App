@@ -41,12 +41,16 @@ function TodoApp() {
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todoList"));
     if (todos && todos.length > 0) setTodos(todos);
-    console.log('RENDERED')
+    console.log("RENDERED");
   }, []);
 
   useEffect(() => {
     localStorage.setItem("todoList", JSON.stringify(todos));
   }, [todos]);
+
+  // useEffect(() => {
+  //   setExpandTodo(false)
+  // }, [selectedTodo])
 
   const { user } = useContext(userContext);
 
@@ -75,10 +79,10 @@ function TodoApp() {
             <div className="max-h-56 overflow-y-scroll">
               {todos.map((todo) => (
                 <div key={todo.id} className="my-3">
-                  <TodoItem 
-                  todo={todo} 
-                  selectTodo={handleExpansion}
-                  expandClose={() => setExpandTodo(false)}
+                  <TodoItem
+                    todo={todo}
+                    selectTodo={handleExpansion}
+                    expandClose={() => setExpandTodo(false)}
                   />
                 </div>
               ))}
@@ -86,17 +90,18 @@ function TodoApp() {
           </div>
 
           {expandTodo && (
-            <div className="absolute bg-white w-1 top-0 bottom-0 ml-56"></div>
-          )}
-
-          {expandTodo && (
-            <div className="mt-5">
-              <TodoItemExpand
-                todo={todos?.find((todo) => todo.id === selectedTodo)}
-                expandClose={() => setExpandTodo(false)}
-              />
+            <div>
+              <div className="absolute bg-white w-1 top-0 bottom-0 -ml-10">
+              </div>
+              <div className="mt-5">
+                <TodoItemExpand
+                  todo={todos?.find((todo) => todo.id === selectedTodo)}
+                  expandClose={() => setExpandTodo(false)}
+                />
+              </div>
             </div>
           )}
+
         </div>
       </div>
     </TodoContextProvider>

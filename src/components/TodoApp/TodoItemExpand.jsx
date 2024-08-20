@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useTodo from "../../contexts/TodoContext";
 import { RiEdit2Line, RiDeleteBin6Line, RiFileEditLine } from "react-icons/ri";
 import { ImCancelCircle } from "react-icons/im";
@@ -26,9 +26,8 @@ function TodoItemExpand({ todo, expandClose }) {
     const dateAndTimeComplete = new Date();
     const completedTime = `${dateAndTimeComplete.getDate()}/${
       dateAndTimeComplete.getMonth() + 1
-    }/${
-      dateAndTimeComplete.getFullYear() % 100
-    } - ${dateAndTimeComplete.getHours()}:${dateAndTimeComplete.getMinutes()}`;
+    }/${ dateAndTimeComplete.getFullYear() % 100 } - ${dateAndTimeComplete.getHours()}:${dateAndTimeComplete.getMinutes()}`;
+
     return completedTime;
   };
 
@@ -72,7 +71,7 @@ function TodoItemExpand({ todo, expandClose }) {
           value={todoText}
           readOnly={!editTodo}
           onChange={(e) => setTodoText(e.target.value)}
-          className={`resize-none bg-black/10 outline-none text-lg ${
+          className={`resize-none px-2 font-medium bg-black/10 outline-none text-lg ${
             todo.isCompleted ? "line-through" : ""
           }`}
         ></textarea>

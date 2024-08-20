@@ -1,8 +1,44 @@
-# React + Vite
+# Utility App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Utility App is a multifunctional React application that combines essential tools such as a password generator, currency converter, temperature converter, and a todo app. This app is designed to provide a seamless and intuitive user experience for performing these everyday tasks.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Follow the steps below to set up and run the Utility App on your local machine.
+
+### Prerequisites
+
+Ensure that you have the following installed:
+
+- **Node.js** (v14 or higher)
+- **npm** (v6 or higher) or **yarn**
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/utility-app.git
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd utility-app
+
+3. **Install the dependencies:**
+   **using npm:**
+   ```bash
+   npm install
+
+   **using yarn:**
+   ```bash
+   yarn install
+
+## Running the Applicatio
+
+1. **Start the development server:**
+   ```bash
+   npm start
+   //or
+   yarn start
+
+2. **Open your browser and navigate to http://localhost:3000 to view the app.**

@@ -25,12 +25,9 @@ Ensure that you have the following installed:
    cd utility-app
 
 3. **Install the dependencies:**
-   **using npm:**
    ```bash
    npm install
-
-   **using yarn:**
-   ```bash
+   //or
    yarn install
 
 ## Running the Applicatio
